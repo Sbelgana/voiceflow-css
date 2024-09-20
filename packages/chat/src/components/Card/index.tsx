@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({ title, description, image, actions = [] }) 
           ))}
         {buttons.map(({ request, name }, index) => (
           <Button onClick={() => runtime.interact(request, name)} key={index}>
-            {name}
+            yo{name}
           </Button>
         ))}
       </Content>

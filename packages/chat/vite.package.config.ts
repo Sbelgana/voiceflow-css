@@ -25,6 +25,7 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        intro: 'YOYOYOYOYO; \n\n\n\n\n import "./style.css";',
       },
     },
   },
