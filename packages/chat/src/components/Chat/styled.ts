@@ -126,7 +126,7 @@ export const Dialog = styled(tag('main', 'dialog'), {
     padding: '0 $5 0 54px',
   },
 
-  [`& ${SystemResponse.Container}`]: {
+  [`& ${SystemResponse.Container}, ${UserResponse.Container}`]: {
     marginBottom: '$1',
 
     '&:last-of-type': {
@@ -143,7 +143,7 @@ export const Dialog = styled(tag('main', 'dialog'), {
     & ${SystemResponse.Actions} + ${UserResponse.Container},
     & ${UserResponse.Container} + ${SystemResponse.Controls} + ${SystemResponse.Container}
   `]: {
-    marginTop: '$5',
+    marginTop: '$3',
   },
 
   [`& ${Timestamp.Container}`]: { width: 50 },

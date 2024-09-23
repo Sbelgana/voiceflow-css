@@ -21,9 +21,9 @@ export const Container = styled(tag(Reset), {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '0 14px',
+  padding: '0 12px',
   borderRadius: '$1',
-  typo: { weight: '$2' },
+  typo: { weight: '$1' },
   whiteSpace: 'nowrap',
   overflowWrap: 'anywhere',
 });

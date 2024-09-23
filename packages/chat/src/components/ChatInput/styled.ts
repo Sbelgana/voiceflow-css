@@ -16,7 +16,7 @@ export const ButtonContainer = styled(tag('label', 'button'), {
   alignItems: 'center',
   paddingBottom: '8px',
   width: '$md',
-  borderRadius: '$1',
+  borderRadius: '20px',
   boxSizing: 'border-box',
   cursor: 'text',
 

@@ -7,8 +7,9 @@ import { styled } from '@/styles';
 const tag = tagFactory(ClassName.FOOTER);
 
 export const Container = styled(tag('footer'), {
-  padding: '$3 $4 $4 $4',
-  borderRadius: '$1',
+  borderTopColor: 'transparent',
+  padding: '0 $5 $5 $5',
+  borderRadius: '$3',
 
   [`& ${Input.Container}`]: {
     flex: 1,
@@ -34,9 +35,10 @@ export const Container = styled(tag('footer'), {
 
 export const Watermark = styled(tag('aside', 'watermark'), {
   display: 'flex',
+  gap: '16px',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '10px 0 $3 0',
+  padding: '10px 0',
   typo: { size: 12, height: '17px' },
   color: '$darkGrey',
 

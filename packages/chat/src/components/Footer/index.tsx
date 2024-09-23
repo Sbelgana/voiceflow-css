@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ withWatermark, hasEnded, disableSend, o
       ) : (
         <ChatInput
           value={message}
-          placeholder="Message…"
+          placeholder="Write a message…"
           autoFocus
           onValueChange={setMessage}
           onSend={handleSend}
@@ -59,10 +59,8 @@ const Footer: React.FC<FooterProps> = ({ withWatermark, hasEnded, disableSend, o
       )}
       {withWatermark && (
         <Watermark>
-          Assistant ⚡️ by
-          <a target="_blank" href="https://voiceflow.com" rel="noreferrer">
-            Voiceflow
-          </a>
+          <div>Powered by Voiceflow</div>
+          <div>Privacy</div>
         </Watermark>
       )}
     </Container>

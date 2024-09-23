@@ -1,6 +1,6 @@
 import chroma from 'chroma-js';
 
-export const PRIMARY = '#3d82e2';
+export const PRIMARY = '#397dff';
 export const WARN = '#db1b42';
 
 export const SHADOWS = {
@@ -18,9 +18,13 @@ export const SHADOWS = {
 };
 
 export const createPrimaryColors = (primary: string) => ({
+  // TODO: How do I calculate these to match the styleguide ??
   primary,
-  darkPrimary: chroma(primary).darken(0.25).hex(),
-  fadedPrimary: chroma(primary).alpha(0.45).hex(),
+  darkPrimary: chroma(primary).darken(2).hex(),
+  darkerPrimary: chroma(primary).darken(3).hex(),
+  fadedPrimary: chroma(primary).brighten(2).alpha(0.25).hex(),
+  lessFadedPrimary: chroma(primary).brighten(1).alpha(0.35).hex(),
+  leastFadedPrimary: chroma(primary).alpha(0.4).hex(),
 });
 
 export const PALETTE = {

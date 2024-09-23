@@ -2,7 +2,7 @@ export const FAMILY = "'Open Sans', sans-serif";
 
 export const SIZES = {
   1: '13px',
-  2: '15px',
+  2: '14px',
   3: '18px',
 };
 

@@ -4,10 +4,12 @@ import { ButtonVariant } from './constants';
 import { PrimaryButton } from './Primary';
 import { SecondaryButton } from './Secondary';
 import { Container, Reset } from './styled';
+import { InlineButton } from './Inline';
 
 const VARIANTS = {
   [ButtonVariant.PRIMARY]: PrimaryButton,
   [ButtonVariant.SECONDARY]: SecondaryButton,
+  [ButtonVariant.INLINE]: InlineButton,
 };
 
 const Button = bindVariants(VARIANTS, ButtonVariant.PRIMARY);

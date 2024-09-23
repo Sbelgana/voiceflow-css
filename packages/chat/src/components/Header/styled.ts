@@ -21,7 +21,7 @@ export const Button = styled(tag(BaseButton.Reset, 'button'), {
   height: 32,
   width: 32,
   marginLeft: 8,
-  borderRadius: 6,
+  borderRadius: '$3',
   background: 'none',
   trans: ['background-color'],
 
