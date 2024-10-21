@@ -10,7 +10,9 @@
     "lint:eslint": "yarn g:eslint",
     "lint:fix": "yarn g:run-p -c \"lint:eslint --fix\" \"lint:prettier --write\"",
     "lint:prettier": "yarn g:prettier --check",
-    "start": "next start"
+    "start": "next start",
+    "test": "yarn test:types",
+    "test:types": "yarn g:tsc --noEmit"
   },
   "dependencies": {
     "@voiceflow/chat": "workspace:*",
@@ -19,7 +21,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "20.12.7",
+    "@types/node": "22.7.5",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "@vanilla-extract/next-plugin": "^2.4.6",
