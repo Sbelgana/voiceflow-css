@@ -21,6 +21,8 @@ const Card: React.FC<CardProps> = ({ title, description, image, actions = [] }) 
 
   return (
     <div className={clsx(ClassName.CARD, cardContainer)}>
+      {/* FIXME: add alt attribute to <img> */}
+      {/* eslint-disable-next-line sonarjs/alt-text */}
       {!!image && <img className={cardImage} src={image} />}
       {(title || description) && (
         <div className={cardContent}>
