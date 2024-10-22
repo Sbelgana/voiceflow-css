@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/test';
 
 import Button from '.';
 import { ButtonVariant } from './constants';
+
+const TEST_ID = 'test-id';
 
 type Story = StoryObj<typeof Button>;
 const meta: Meta<typeof Button> = {
@@ -17,6 +20,10 @@ const meta: Meta<typeof Button> = {
   args: {
     children: 'Button Label',
     round: false,
+    onClick: () => {
+      alert('Button clicked');
+    },
+    testID: TEST_ID,
   },
 };
 
@@ -25,6 +32,19 @@ export default meta;
 export const Primary: Story = {
   args: {
     variant: ButtonVariant.PRIMARY,
+  },
+};
+
+export const PrimaryHovered: Story = {
+  args: {
+    variant: ButtonVariant.PRIMARY,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const button = canvas.getByTestId(TEST_ID);
+
+    await userEvent.hover(button);
   },
 };
 

@@ -13,9 +13,10 @@ import { buttonStyles } from './styles.css';
 interface ButtonProps extends IThemedComponent, ComponentPropsWithRef<'button'> {
   variant?: ButtonVariant;
   round?: boolean;
+  testID?: string;
 }
 
-const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(({ children, ...props }, ref) => {
+const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(({ children, testID, ...props }, ref) => {
   const { variant: type, round } = props;
 
   return (
@@ -23,6 +24,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(({ 
       ref={ref}
       style={assignInlineVars(PALETTE, { colors: createPalette(props.primaryColor) })}
       className={clsx(ClassName.BUTTON, buttonStyles({ type: type ?? ButtonVariant.PRIMARY, round }))}
+      data-testid={testID}
       {...props}
     >
       {children}
