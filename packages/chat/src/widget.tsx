@@ -7,7 +7,7 @@ import { ChatConfig } from './dtos/ChatConfig.dto';
 import { RenderMode } from './dtos/RenderOptions.dto';
 import { shadowRoot } from './old-styles/shadow';
 import { stitches } from './old-styles/theme';
-import { mergeAssistantOptions } from './utils/assistant';
+import { mergeAssistantSettings } from './utils/assistant';
 import { createPlaceholderMethods } from './utils/chat';
 import { addStyleSheetURL } from './utils/stylesheet';
 import { ChatEmbed, ChatWidget } from './views';
@@ -54,7 +54,7 @@ window.voiceflow.chat ??= {
 
   load: async (loadConfig: LoadConfig) => {
     const config = ChatConfig.parse(loadConfig);
-    const assistant = await mergeAssistantOptions(config, loadConfig.assistant);
+    const assistant = await mergeAssistantSettings(config, loadConfig.assistant);
 
     const { reactRoot, shadowRoot } = createChatRoot(config);
 

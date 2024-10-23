@@ -5,7 +5,9 @@
 import { z } from 'zod';
 
 import { createPalette } from '@/styles/colors';
-import { ChatPosition } from '@/types';
+import { ChatPersistence, ChatPosition } from '@/types';
+
+import { AnyExtension } from './Extension.dto';
 
 const DEFAULT_AVATAR = 'https://cdn.voiceflow.com/assets/logo.png';
 
@@ -15,7 +17,6 @@ export enum InterfaceType {
   EMBED = 'embed',
 }
 
-export type InterfaceSettings = z.infer<typeof InterfaceSettings>;
 export const InterfaceSettings = z
   .object({
     type: z.nativeEnum(InterfaceType).default(InterfaceType.WIDGET),
@@ -121,8 +122,16 @@ export const SecuritySettings = z
   })
   .default({});
 
-export const AssistantSettings = z.object({
-  interface: InterfaceSettings,
-  appearance: AppearanceSettings,
-  security: SecuritySettings,
-});
+export type AssistantSettings = z.infer<typeof AssistantSettings>;
+export type RawAssistantSettings = z.input<typeof AssistantSettings>;
+
+export const AssistantSettings = z
+  .object({
+    interface: InterfaceSettings,
+    appearance: AppearanceSettings,
+    security: SecuritySettings,
+
+    persistence: z.nativeEnum(ChatPersistence).default(ChatPersistence.LOCAL_STORAGE),
+    extensions: AnyExtension.array().default([]),
+  })
+  .default({});

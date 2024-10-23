@@ -10,6 +10,9 @@ export const DEFAULT_AVATAR = 'https://cdn.voiceflow.com/assets/logo.png';
 export type AssistantOptions = z.infer<typeof AssistantOptions>;
 export type RawAssistantOptions = z.input<typeof AssistantOptions>;
 
+/**
+ * @deprecated
+ */
 export const AssistantOptions = z
   .object({
     title: z.string().default('Voiceflow Assistant'),

@@ -10,7 +10,7 @@ import { ExtensionType } from '@/dtos/Extension.dto';
 import { PRIMARY } from '@/old-styles';
 import { ChatPersistence, ChatPosition } from '@/types';
 
-import { mergeAssistantOptions } from './assistant';
+import { mergeAssistantSettings } from './assistant';
 
 vi.mock('@voiceflow/sdk-runtime', () => ({ VoiceflowRuntime: vi.fn() }));
 
@@ -26,7 +26,7 @@ describe('assistant utils', () => {
     return getPublishing;
   };
 
-  describe('mergeAssistantOptions()', () => {
+  describe('mergeAssistantSettings()', () => {
     const config = {} as ChatConfig;
     const remoteOptions: RawAssistantOptions = {
       title: 'remote',
@@ -50,8 +50,9 @@ describe('assistant utils', () => {
     it('should fallback to default options when not configured', async () => {
       mockGetPublishing();
 
-      const merged = await mergeAssistantOptions(config, {});
+      const merged = await mergeAssistantSettings(config, {});
 
+      // TODO: Fix this here
       expect(merged).toEqual({
         title: 'Voiceflow Assistant',
         color: PRIMARY,
@@ -73,7 +74,7 @@ describe('assistant utils', () => {
     it('should use remote values pulled from publishing configuration', async () => {
       mockGetPublishing().mockResolvedValue(remoteOptions);
 
-      const merged = await mergeAssistantOptions(config, undefined);
+      const merged = await mergeAssistantSettings(config, undefined);
 
       expect(merged).toEqual({
         ...remoteOptions,
@@ -104,7 +105,7 @@ describe('assistant utils', () => {
       };
       mockGetPublishing().mockResolvedValue(remoteOptions);
 
-      const merged = await mergeAssistantOptions(config, localOptions);
+      const merged = await mergeAssistantSettings(config, localOptions);
 
       expect(merged).toEqual({
         ...localOptions,
@@ -125,7 +126,7 @@ describe('assistant utils', () => {
       };
       mockGetPublishing().mockResolvedValue({ spacing: { bottom: 100 } });
 
-      const merged = await mergeAssistantOptions(config, localOptions);
+      const merged = await mergeAssistantSettings(config, localOptions);
 
       expect(merged).toEqual({
         title: 'Voiceflow Assistant',

@@ -4,7 +4,7 @@ import type { TraceDeclaration } from '@voiceflow/sdk-runtime';
 import cuid from 'cuid';
 import { useState } from 'react';
 
-import type { AssistantOptions } from '@/dtos/AssistantOptions.dto';
+import type { AssistantSettings } from '@/dtos/AssistantSettings.dto';
 import type { ChatConfig } from '@/dtos/ChatConfig.dto';
 import { useStateRef } from '@/hooks/useStateRef';
 import type { SendMessage, SessionOptions, TurnProps } from '@/types';
@@ -22,7 +22,7 @@ import { useNoReply } from './useNoReply';
 import { createContext, useRuntimeAPI } from './useRuntimeAPI';
 
 export interface Settings {
-  assistant: AssistantOptions;
+  assistant: AssistantSettings;
   config: ChatConfig;
   traceHandlers?: TraceDeclaration<RuntimeMessage, any>[];
 }
